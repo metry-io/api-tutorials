@@ -29,10 +29,10 @@ the `skip` params as [described here](http://docs.metry.apiary.io/#introduction/
 
 ## 2. Map meters not yet mapped
 
-Now you will have to map each meter to the meters in your own databases. This is basically done by by storing each
+Now you will have to map each meter to the meters in your own databases. This is basically done by storing each
 meter's `root._id` together with the existing meters in your database. 
 
-The process of mapping every Metry meter with the existing meters in your database usually requires human interaction. Therefore you should provide the user an interface where this
+The process of mapping each Metry meter with the existing meters in your database usually requires human interaction. Therefore you should provide the user an interface where this
 can be accomplished. Remember that you can help the user with suggestions using the meta data available for each meter 
 (`ean`, `name`, `address`, `tags`, `type`).
 
@@ -63,13 +63,13 @@ The `consumption_stats`provides you with information about available data. As a 
 Metry will always provide monthly values for metric energy. The availability of all other metrics and granularities will vary.
 
 #### Sum of hour not always same as month
-You cannot assume that a month values will be the same as the underlying day or 
+You cannot assume that a month value will be the same as the underlying day or 
 hour values. If there are gaps in the hour data, the month values will be higher than the sum of hour values. Metry stores the values
 separately, which allows this feature.
 
 #### Available meters changes over time**
-Remeber that a consumption request the worked one day may fail the next day because the user chosed to 
-trash the meter from Metry. Metry uses standard [response codes](http://docs.metry.apiary.io/#introduction/error-handling)
+Remember that a consumption request that worked one day, may fail the next day because the user chose to 
+trash the meter from Metry. The Metry API is using standard HTTP responses [response codes](http://docs.metry.apiary.io/#introduction/error-handling)
 to describe the error.
 
 Use this to filter errors that are 
@@ -80,9 +80,9 @@ Use this to filter errors that are
 
 #### Understand how a Metry-meter corresponds to your meters
 A meter at Metry *is defined as a point where data is collected*. 
-It is equivalent to Swedish definitions "anläggnignsid" or "leveranspunkt". One meter at Metry may include all of the following items
+It is equivalent to Swedish definitions "anläggnignsid" or "leveranspunkt". One meter at Metry may include all of the following items;
 
-- month vaules
+- month values
 - day values
 - hour values
 - reading values
@@ -90,7 +90,7 @@ It is equivalent to Swedish definitions "anläggnignsid" or "leveranspunkt". One
 
 # One-time export
 
-Since the continous export script only requests new values, historical values added after the first request will 
+Since the continuous export script only requests new values, historical values added after the first request will 
 never be requested. The same issue applies to updated values (while Metry tries to only collect correct values there will be
 rare cases where values are updated to replace an incorrect value).
 
